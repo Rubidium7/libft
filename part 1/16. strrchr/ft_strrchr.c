@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlonka <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/30 12:52:00 by nlonka            #+#    #+#             */
-/*   Updated: 2022/10/30 13:21:34 by nlonka           ###   ########.fr       */
+/*   Created: 2022/10/30 13:21:47 by nlonka            #+#    #+#             */
+/*   Updated: 2022/10/30 13:29:10 by nlonka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-char *ft_strrchr(const char *str, int c);
+#include <stdlib.h>
 
-int main()
+char	*ft_strrchr(const char *str, int c)
 {
-	const char str[] = "mutsis on kova tyyppi, kaiketi";
-	int c = 'k';
-	char *ans;
+	int	i;
 
-	ans = ft_strrchr(str, c);
-	printf("the ans is\n%s\n", ans);
-	return (0);
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	while (i != 0 && str[i] != c)
+		i--;
+	if (i == 0)
+		return (NULL);
+	str = str + i;
+	return ((char*)str);
 }
