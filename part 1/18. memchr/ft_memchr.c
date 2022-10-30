@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlonka <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/30 13:40:27 by nlonka            #+#    #+#             */
-/*   Updated: 2022/10/30 14:11:56 by nlonka           ###   ########.fr       */
+/*   Created: 2022/10/30 13:57:17 by nlonka            #+#    #+#             */
+/*   Updated: 2022/10/30 14:05:25 by nlonka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(const char *s1, const char *s2, int n)
+#include <stdlib.h>
+
+char	*ft_memchr(const char *str, int c, int n)
 {
 	int	i;
 
 	i = 0;
-	while (s1[i] == s2[i] && i < n)
-	{
-		if (s1[i] == '\0' || s2[i] == '\0')
-			return (0);
+	while (i < n && str[i] != c)
 		i++;
-	}
-	return (s1[i] - s2[i]);
+	if (i == n)
+		return (NULL);
+	str = str + i;
+	return ((char*)str);
 }
