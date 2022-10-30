@@ -6,17 +6,28 @@
 /*   By: nlonka <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 14:19:58 by nlonka            #+#    #+#             */
-/*   Updated: 2022/10/28 14:23:23 by nlonka           ###   ########.fr       */
+/*   Updated: 2022/10/30 14:29:17 by nlonka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *strnstr(const char *hs, const char n)
+char *ft_strnstr(const char *hs, const char *n, int l)
 {
 	int	i;
 	int	i2;
 
-	while (hs[i] != '\0')
+	i = 0;
+	i2 = 0;
+	while (hs[i] != '\0' && i < l)
 	{
 		while (hs[i] == n[i2])
-
-
+		{
+			i++; 
+			i2++;
+			if (n[i2] == '\0')
+				return ((char*)(hs + i - i2));
+		}
+		i2 = 0;
+		i++;
+	}
+	return ((char*)hs);
+}
