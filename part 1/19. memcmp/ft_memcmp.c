@@ -6,20 +6,20 @@
 /*   By: nlonka <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 13:40:27 by nlonka            #+#    #+#             */
-/*   Updated: 2022/10/30 14:12:22 by nlonka           ###   ########.fr       */
+/*   Updated: 2022/11/03 13:56:57 by nlonka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_memcmp(const char *s1, const char *s2, int n)
-{
-	int	i;
+#include <stdlib.h>
 
-	i = 0;
-	while (s1[i] == s2[i] && i < n)
-	{
-		if (s1[i] == '\0' && s2[i] == '\0')
-			return (0);
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
+{
+	size_t	i;
+
+	i = 0;;
+	while (((unsigned char*)s1)[i] == ((unsigned char*)s2)[i] && i < n)
 		i++;
-	}
-	return (s1[i] - s2[i]);
+	if (i == n)
+		return (0);
+	return (((unsigned char*)s1)[i] - ((unsigned char*)s2)[i]);
 }

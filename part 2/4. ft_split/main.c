@@ -6,7 +6,7 @@
 /*   By: nlonka <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:33:58 by nlonka            #+#    #+#             */
-/*   Updated: 2022/10/26 14:33:59 by nlonka           ###   ########.fr       */
+/*   Updated: 2022/11/05 16:31:25 by nlonka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,14 @@ void ft_putstr(char const *str)
 
 int main ()
 {
-	char const s[] = "HI YOU MY FRIEND";
+	char const s[] = "HI YOU        MY FRIEND";
 	ft_putstr(s);
 	ft_putchar('\n');
 	char c = ' ';
 	ft_putchar(c);
 	ft_putchar('\n');
 	char **ans = ft_split(s, c);
-	ft_putstr(ans[1]);
+	ft_putstr(ans[3]);
 	ft_putchar('\n');
 	return(0);
 }

@@ -6,13 +6,14 @@
 /*   By: nlonka <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:33:58 by nlonka            #+#    #+#             */
-/*   Updated: 2022/10/24 18:31:53 by nlonka           ###   ########.fr       */
+/*   Updated: 2022/11/01 16:47:30 by nlonka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
-char *ft_substr(char const *s, unsigned int start, int len);
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 void ft_putchar(char c)
 {
@@ -31,18 +32,19 @@ void ft_putstr(char *str)
 	}
 }
 
+char	dora_the_explora(unsigned int n, char c)
+{
+	c = 65 + n;
+	return (c);
+}	
+
 int main ()
 {
-	unsigned int start;
-	int len;
+	char const str[] = "i dora the explored your mom last nite";
+	char *ans;
 
-	char s[25] = "hi hello chrissy wake up";
-	start = 3;
-	len = 13;
-	ft_putstr(s);
-	char *ans = ft_substr(s, start, len);
-	ft_putchar('\n');
-	ft_putstr(ans);
-	ft_putchar('\n');
+	printf("the original string:\n%s\n", str);
+	ans = ft_strmapi(str, dora_the_explora);
+	printf("the string after being dora the explored:\n%s\n", ans);
 	return(0);
 }

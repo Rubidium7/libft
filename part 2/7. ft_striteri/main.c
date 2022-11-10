@@ -6,13 +6,14 @@
 /*   By: nlonka <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:33:58 by nlonka            #+#    #+#             */
-/*   Updated: 2022/10/24 18:31:53 by nlonka           ###   ########.fr       */
+/*   Updated: 2022/11/01 17:06:01 by nlonka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
-char *ft_substr(char const *s, unsigned int start, int len);
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 void ft_putchar(char c)
 {
@@ -31,18 +32,18 @@ void ft_putstr(char *str)
 	}
 }
 
+void	dora_the_explora_9000(unsigned int n, char *c)
+{
+	if (c[0] == 'e')
+		c[0] = 65 + n;
+}	
+
 int main ()
 {
-	unsigned int start;
-	int len;
+	char str[] = "i dora the explored your mom last nite";
 
-	char s[25] = "hi hello chrissy wake up";
-	start = 3;
-	len = 13;
-	ft_putstr(s);
-	char *ans = ft_substr(s, start, len);
-	ft_putchar('\n');
-	ft_putstr(ans);
-	ft_putchar('\n');
+	printf("the original string:\n%s\n", str);
+	ft_striteri(str, dora_the_explora_9000);
+	printf("the string after being dora the explored:\n%s\n", str);
 	return(0);
 }

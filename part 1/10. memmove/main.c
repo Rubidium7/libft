@@ -6,7 +6,7 @@
 /*   By: nlonka <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 18:18:26 by nlonka            #+#    #+#             */
-/*   Updated: 2022/10/26 19:17:07 by nlonka           ###   ########.fr       */
+/*   Updated: 2022/11/01 18:31:55 by nlonka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int main()
 	char src2[] = "eiku isäs";
 	printf("the src string is %s\n", src);
 	printf("the dest string is %s\n", dest);
-	memcpy(dest, src, 10);
-	printf("%s\n", dest);
-	ft_memcpy(dest2, src2, 10);
-	printf("%s\n", dest2);
+	memmove(src + 3, src, 7);
+	printf("%s\n", src);
+	ft_memmove(src2 + 3, src2, 7);
+	printf("%s\n", src2);
 	return (0);
 }
