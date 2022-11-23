@@ -6,21 +6,19 @@
 /*   By: nlonka <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 12:55:17 by nlonka            #+#    #+#             */
-/*   Updated: 2022/11/07 15:32:26 by nlonka           ###   ########.fr       */
+/*   Updated: 2022/11/09 16:15:26 by nlonka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdlib.h>
 
 char	*ft_strchr(const char *str, int c)
 {
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0' && str[i] != c)
+	while (str[i] != '\0' && str[i] != (unsigned char)c)
 		i++;
-	if (str[i] == '\0' && c != '\0')
-		return (NULL);
+	if (str[i] == '\0' && (unsigned char)c != '\0')
+		return (0);
 	str = str + i;
 	return ((char *)str);
 }

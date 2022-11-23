@@ -6,11 +6,9 @@
 /*   By: nlonka <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 13:21:47 by nlonka            #+#    #+#             */
-/*   Updated: 2022/11/07 15:37:36 by nlonka           ###   ########.fr       */
+/*   Updated: 2022/11/09 16:17:10 by nlonka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdlib.h>
 
 char	*ft_strrchr(const char *str, int c)
 {
@@ -21,12 +19,12 @@ char	*ft_strrchr(const char *str, int c)
 		i++;
 	while (i >= 0)
 	{
-		if (str[i] == c)
+		if (str[i] == (unsigned char)c)
 		{
 			str = str + i;
 			return ((char *)str);
 		}
 		i--;
 	}
-	return (NULL);
+	return (0);
 }

@@ -6,21 +6,19 @@
 /*   By: nlonka <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 16:57:41 by nlonka            #+#    #+#             */
-/*   Updated: 2022/11/07 15:35:30 by nlonka           ###   ########.fr       */
+/*   Updated: 2022/11/10 11:35:38 by nlonka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t n)
 {
-	int	src_len;
-	int	dst_len;
+	size_t	src_len;
+	size_t	dst_len;
 
-	src_len = 0;
 	dst_len = 0;
-	while (src[src_len] != '\0')
-		src_len++;
+	src_len = ft_strlen(src);
 	if (n == 0)
 		return (src_len);
 	while (*dst && n > 0)
@@ -29,11 +27,12 @@ size_t	ft_strlcat(char *dst, const char *src, size_t n)
 		dst++;
 		n--;
 	}
-	while (*src && n-- > 1)
+	while (*src && n > 1)
 	{
 		*dst = *src;
 		dst++;
 		src++;
+		n--;
 	}
 	if (n == 1 || *src == 0)
 		*dst = '\0';

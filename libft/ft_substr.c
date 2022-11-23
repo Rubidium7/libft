@@ -6,39 +6,31 @@
 /*   By: nlonka <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:14:40 by nlonka            #+#    #+#             */
-/*   Updated: 2022/11/07 15:38:50 by nlonka           ###   ########.fr       */
+/*   Updated: 2022/11/10 12:14:36 by nlonka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-size_t	ft_strlen_cooler(char const *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s && s[i] != '\0')
-		i++;
-	return (i);
-}
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *str, unsigned int start, size_t len)
 {
 	char	*ans;
 	size_t	size;
 
+	if (str && ft_strlen(str) < len)
+		len = ft_strlen(str);
 	ans = (char *) malloc ((len + 1) * sizeof(char));
-	if (start >= ft_strlen_cooler(s))
+	if (ans == NULL)
+		return (NULL);
+	if (str && start >= ft_strlen(str))
 	{
 		ans[0] = '\0';
 		return (ans);
 	}
-	if (ans == NULL)
-		return (NULL);
 	size = 0;
-	while (s && s[start] != '\0' && size != len)
+	while (str && str[start] != '\0' && size != len)
 	{
-		ans[size] = s[start];
+		ans[size] = str[start];
 		size++;
 		start++;
 	}

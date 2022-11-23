@@ -6,29 +6,13 @@
 /*   By: nlonka <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 15:20:25 by nlonka            #+#    #+#             */
-/*   Updated: 2022/11/07 15:27:54 by nlonka           ###   ########.fr       */
+/*   Updated: 2022/11/08 14:32:36 by nlonka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-char	*ft_putout(char *ans)
-{
-	ans[0] = '-';
-	ans[1] = '2';
-	ans[2] = '1';
-	ans[3] = '4';
-	ans[4] = '7';
-	ans[5] = '4';
-	ans[6] = '8';
-	ans[7] = '3';
-	ans[8] = '6';
-	ans[9] = '4';
-	ans[10] = '8';
-	return (ans);
-}
-
-char	*the_big_malloc_300(int n, int *h)
+static char	*the_big_malloc_300(int n, int *h)
 {
 	char	*ans;
 
@@ -44,9 +28,10 @@ char	*the_big_malloc_300(int n, int *h)
 	return (ans);
 }
 
-int	potenssinaattori (int h, int c)
+static long int	the_powering(int h, int c)
 {
-	int ans;
+	long int	ans;
+
 	ans = 1;
 	while (h > 1)
 	{
@@ -54,27 +39,24 @@ int	potenssinaattori (int h, int c)
 		h--;
 	}
 	if (c < 0)
-		ans = ans/10;
+		ans = ans / 10;
 	return (ans);
 }
 
-void	negikset(char *ans, int i, int h, int n)
+static void	negs(char *ans, int i, int h, int n)
 {
-	if (n == -2147483648)
- 		ans = ft_putout(ans);
-	else
+	long int	n2;
+
+	ans[i] = '-';
+	i++;
+	n2 = -(long int)n;
+	while (the_powering(h, -1) > 0)
 	{
-		ans[i] = '-';
+		ans[i] = n2 / (the_powering(h, -1)) % 10 + '0';
+		h--;
 		i++;
-		n = -n;
-		while (potenssinaattori(h, -1) > 0)
-		{
-			ans[i] = n / (potenssinaattori(h, -1)) % 10 + '0';
-			h--;
-			i++;
-		}
-		ans[i] = '\0';
 	}
+	ans[i] = '\0';
 }
 
 char	*ft_itoa(int n)
@@ -88,12 +70,12 @@ char	*ft_itoa(int n)
 	if (ans == NULL)
 		return (NULL);
 	if (n < 0)
-        negikset(ans, i, h, n);
+		negs(ans, i, h, n);
 	else
 	{
 		while (h > 0)
 		{
-			ans[i] = n / (potenssinaattori(h, 1)) % 10 + '0';
+			ans[i] = n / (the_powering(h, 1)) % 10 + '0';
 			h--;
 			i++;
 		}

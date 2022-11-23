@@ -6,20 +6,20 @@
 /*   By: nlonka <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 13:29:47 by nlonka            #+#    #+#             */
-/*   Updated: 2022/11/04 11:21:33 by nlonka           ###   ########.fr       */
+/*   Updated: 2022/11/07 18:26:07 by nlonka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(char *str, int fd)
 {
 	int	i;
-	
+
 	i = 0;
-	while (s && s[i] != '\0')
+	while (str && str[i] != '\0')
 	{
-		write(fd, &s[i], 1);
+		write(fd, &str[i], 1);
 		i++;
 	}
 }

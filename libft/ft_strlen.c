@@ -6,13 +6,15 @@
 /*   By: nlonka <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 18:15:18 by nlonka            #+#    #+#             */
-/*   Updated: 2022/10/26 18:16:19 by nlonka           ###   ########.fr       */
+/*   Updated: 2022/11/09 16:10:44 by nlonka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+#include "libft.h"
+
+size_t	ft_strlen(const char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (str[i] != '\0')

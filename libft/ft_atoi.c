@@ -6,15 +6,23 @@
 /*   By: nlonka <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 19:50:48 by nlonka            #+#    #+#             */
-/*   Updated: 2022/11/07 15:17:51 by nlonka           ###   ########.fr       */
+/*   Updated: 2022/11/11 16:03:46 by nlonka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+static int	the_sign(int c)
+{
+	if (c == -1)
+		return (0);
+	else
+		return (-1);
+}
+
 int	ft_atoi(const char *str)
 {
-	int	n;
-	int	i;
-	int	c;
+	long int	n;
+	long int	i;
+	int			c;
 
 	c = 1;
 	i = 0;
@@ -33,6 +41,8 @@ int	ft_atoi(const char *str)
 	{
 		n = n * 10 + str[i] - '0';
 		i++;
+		if (n < 0)
+			return (the_sign(c));
 	}
 	return (n * c);
 }	
